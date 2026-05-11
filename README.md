@@ -86,7 +86,7 @@ http://localhost:8081
 ## 🔹 Clonar repositório
 
 ```bash
-git clone git clone https://github.com/MarcioTomazoni/php003-lab
+git clone https://github.com/MarcioTomazoni/php003-lab
 ```
 
 ---
