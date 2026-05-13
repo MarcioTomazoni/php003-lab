@@ -165,6 +165,21 @@ O projeto utiliza uma estrutura MVC simplificada:
 
 ---
 
+# 🧩 Templates reutilizáveis
+
+O projeto utiliza templates compartilhados para evitar repetição de código HTML.
+
+Estrutura:
+
+```bash
+views/
+└── templates/
+    ├── header.php
+    └── footer.php
+```
+
+---
+
 # 🔥 Tecnologias Utilizadas
 
 - Docker Desktop
@@ -179,8 +194,6 @@ O projeto utiliza uma estrutura MVC simplificada:
 
 # 📚 Objetivos futuros
 
-- Templates reutilizáveis
-- Header/Footer
 - CSS organizado
 - Sistema de rotas avançado
 - Integração com MySQL

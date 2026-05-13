@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>PHP003 MVC</title>
-</head>
-<body>
+<?php require_once __DIR__ . '/templates/header.php'; ?>
 
-<h1>🚀 MVC funcionando!</h1>
+<h1>🏠 Home</h1>
 
-<p>Você está usando:</p>
-<ul>
-    <li>NGINX</li>
-    <li>PHP-FPM</li>
-    <li>Docker</li>
-</ul>
+<p>MVC funcionando com Docker.</p>
 
-</body>
-</html>
+<?php require_once __DIR__ . '/templates/footer.php'; ?>

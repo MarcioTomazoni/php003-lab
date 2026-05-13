@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sobre</title>
-</head>
-<body>
+<?php require_once __DIR__ . '/templates/header.php'; ?>
 
-<h1>📘 Página Sobre</h1>
+<h1>📘 Sobre</h1>
 
 <p>Essa página foi carregada pelo Router.</p>
 
-<a href="/">Home</a>
-
-</body>
-</html>
+<?php require_once __DIR__ . '/templates/footer.php'; ?>
