@@ -180,6 +180,25 @@ views/
 
 ---
 
+# 🎨 Organização de Assets
+
+O projeto utiliza uma estrutura dedicada para arquivos estáticos:
+
+```bash
+assets/
+├── css/
+├── js/
+└── img/
+```
+
+Atualmente o projeto utiliza:
+
+- CSS externo
+- Assets servidos pelo NGINX
+- Estrutura preparada para frontend escalável
+
+---
+
 # 🔥 Tecnologias Utilizadas
 
 - Docker Desktop
@@ -194,7 +213,6 @@ views/
 
 # 📚 Objetivos futuros
 
-- CSS organizado
 - Sistema de rotas avançado
 - Integração com MySQL
 - CRUD completo
