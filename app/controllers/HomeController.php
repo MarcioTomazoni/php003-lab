@@ -9,4 +9,8 @@ class HomeController {
     public function sobre() {
         require_once __DIR__ . '/../views/sobre.php';
     }
+
+    public function contato() {
+    require_once __DIR__ . '/../views/contato.php';
+    }
 }

@@ -199,6 +199,27 @@ Atualmente o projeto utiliza:
 
 ---
 
+# 🛣️ Sistema de Rotas
+
+O projeto utiliza um sistema de rotas centralizado através da classe `Router`.
+
+Exemplo:
+
+```php
+'/sobre' => [
+    'controller' => 'HomeController',
+    'method' => 'sobre'
+]
+```
+
+As rotas definem:
+
+- Controller responsável
+- Método executado
+- URL acessada
+
+---
+
 # 🔥 Tecnologias Utilizadas
 
 - Docker Desktop
@@ -213,7 +234,6 @@ Atualmente o projeto utiliza:
 
 # 📚 Objetivos futuros
 
-- Sistema de rotas avançado
 - Integração com MySQL
 - CRUD completo
 - Autenticação

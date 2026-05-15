@@ -2,28 +2,41 @@
 
 class Router {
 
+    private $routes = [
+
+        '/' => [
+            'controller' => 'HomeController',
+            'method' => 'index'
+        ],
+
+        '/sobre' => [
+            'controller' => 'HomeController',
+            'method' => 'sobre'
+        ],
+
+        '/contato' => [
+            'controller' => 'HomeController',
+            'method' => 'contato'
+        ]
+
+    ];
+
     public function route($url) {
 
-        switch ($url) {
+        if (array_key_exists($url, $this->routes)) {
 
-            case '/':
-            case '':
-                require_once __DIR__ . '/../controllers/HomeController.php';
+            $controllerName = $this->routes[$url]['controller'];
+            $method = $this->routes[$url]['method'];
 
-                $controller = new HomeController();
-                $controller->index();
-                break;
+            require_once __DIR__ . '/../controllers/' . $controllerName . '.php';
 
-            case '/sobre':
-                require_once __DIR__ . '/../controllers/HomeController.php';
+            $controller = new $controllerName();
+            $controller->$method();
 
-                $controller = new HomeController();
-                $controller->sobre();
-                break;
+        } else {
 
-            default:
-                echo "<h1>404 - Página não encontrada</h1>";
-                break;
+            echo "<h1>404 - Página não encontrada</h1>";
+
         }
     }
 }
