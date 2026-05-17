@@ -1,4 +1,17 @@
-.env
-vendor/
+# Node
 node_modules/
 
+# Ambiente
+.env
+
+# Logs
+*.log
+
+# Arquivos locais
+compare
+compare.php
+compare.html
+teste
+teste.php
+teste.html
+test-db.php

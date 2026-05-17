@@ -220,6 +220,86 @@ As rotas definem:
 
 ---
 
+# 🗄️ Banco de Dados MySQL
+
+O projeto utiliza um container MySQL 8 para armazenamento de dados da aplicação.
+
+Configuração atual:
+
+| Configuração | Valor |
+|---|---|
+| Banco de dados | php003 |
+| Usuário | root |
+| Senha | root |
+| Container | php003-mysql |
+
+O banco é executado de forma isolada através do Docker Compose.
+
+---
+
+# 🖥️ phpMyAdmin
+
+O projeto utiliza o phpMyAdmin para gerenciamento visual do banco de dados MySQL.
+
+Acesso:
+
+```bash
+http://localhost:8082
+```
+
+Credenciais:
+
+| Campo | Valor |
+|---|---|
+| Servidor | mysql |
+| Usuário | root |
+| Senha | root |
+
+O phpMyAdmin se conecta automaticamente ao container MySQL através da rede interna do Docker.
+
+---
+
+# 💾 Volume Persistente MySQL
+
+O projeto utiliza volume Docker para persistência dos dados do banco.
+
+Estrutura:
+
+```yaml
+volumes:
+  mysql_data:
+```
+
+Isso garante que os dados do MySQL não sejam perdidos ao reiniciar ou remover os containers.
+
+---
+
+# 🔌 Conexão PDO
+
+O projeto utiliza PDO para conexão com o banco MySQL.
+
+Arquivo responsável:
+
+```bash
+app/core/Database.php
+```
+
+A conexão é realizada utilizando:
+
+- PDO
+- pdo_mysql
+- Containers Docker interligados em rede interna
+
+Exemplo de host utilizado:
+
+```php
+private $host = 'mysql';
+```
+
+O nome `mysql` corresponde ao nome do serviço definido no `docker-compose.yml`.
+
+---
+
 # 🔥 Tecnologias Utilizadas
 
 - Docker Desktop
