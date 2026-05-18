@@ -36,6 +36,8 @@ NGINX Container
 PHP-FPM Container
    ↓
 Aplicação MVC
+   ↓
+MySQL Container
 ```
 
 ---
@@ -46,10 +48,29 @@ Aplicação MVC
 php003/
 │
 ├── app/
+│   ├── assets/
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── img/
+│   │
 │   ├── controllers/
+│   │   └── HomeController.php
+│   │
 │   ├── core/
+│   │   ├── Router.php
+│   │   └── Database.php
+│   │
 │   ├── views/
-│   └── index.php
+│   │   ├── templates/
+│   │   │   ├── header.php
+│   │   │   └── footer.php
+│   │   │
+│   │   ├── home.php
+│   │   ├── sobre.php
+│   │   └── contato.php
+│   │
+│   ├── index.php
+│   └── test-db.php
 │
 ├── nginx/
 │   └── default.conf
@@ -70,13 +91,28 @@ php003/
 |---|---|
 | php003-nginx | Servidor Web NGINX |
 | php003-php | Processamento PHP-FPM |
+| php003-mysql | Banco de dados MySQL |
+| php003-phpmyadmin | Interface visual phpMyAdmin |
+
+---
+
+# 🔌 Port Mapping
+
+O projeto utiliza portas customizadas para evitar conflitos com serviços locais do sistema operacional.
+
+| Serviço | Porta Host | Porta Container |
+|---|---|---|
+| NGINX | 8085 | 80 |
+| phpMyAdmin | 8086 | 80 |
+
+O MySQL não possui porta publicada externamente, funcionando apenas na rede interna Docker.
 
 ---
 
 # 🌐 Acesso da Aplicação
 
 ```bash
-http://localhost:8081
+http://localhost:8085
 ```
 
 ---
@@ -244,7 +280,7 @@ O projeto utiliza o phpMyAdmin para gerenciamento visual do banco de dados MySQL
 Acesso:
 
 ```bash
-http://localhost:8082
+http://localhost:8086
 ```
 
 Credenciais:
@@ -300,12 +336,46 @@ O nome `mysql` corresponde ao nome do serviço definido no `docker-compose.yml`.
 
 ---
 
+# ✅ Teste de Conexão com Banco
+
+O projeto possui um arquivo de teste para validar a conexão PDO com o MySQL containerizado.
+
+Arquivo:
+
+```bash
+app/test-db.php
+```
+
+Acesso:
+
+```bash
+http://localhost:8085/test-db.php
+```
+
+Resultado esperado:
+
+```text
+🚀 Conexão com MySQL funcionando!
+```
+
+Esse teste confirma:
+
+- Comunicação entre containers
+- Funcionamento do PDO
+- Rede interna Docker
+- Integração PHP + MySQL
+
+---
+
 # 🔥 Tecnologias Utilizadas
 
 - Docker Desktop
 - Docker Compose
 - NGINX
 - PHP 8.2 FPM
+- MySQL 8
+- phpMyAdmin
+- PDO
 - Ubuntu MATE
 - Git
 - GitHub
@@ -314,10 +384,15 @@ O nome `mysql` corresponde ao nome do serviço definido no `docker-compose.yml`.
 
 # 📚 Objetivos futuros
 
-- Integração com MySQL
-- CRUD completo
-- Autenticação
+- Sistema CRUD completo
+- Modelos MVC avançados
+- Autenticação de usuários
+- Middleware
+- Upload de arquivos
+- Integração com API
 - Deploy em cloud
+- CI/CD
+- Docker Compose avançado
 
 ---
 
